@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+
+<!-- This is the code to my website, Read if you dare :) -->
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corey Graham - Game Programming Portfolio</title>
+
+    <link rel="stylesheet" href="../StyleSheet.css" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body id="body">
+    <!-- Large box that fades background in and out -->
+    <div class="fadingInAndOut"></div>
+
+    <!-- Main information on project -->
+    <div class="projectBox">
+        <h1 class="title" style="font-size:90px">Republic Commando Scratch</h1>
+        <hr />
+        <p class="center text">Top-down Shooter Game</p>
+        <pre class="center text"><b>Project Type:</b> Personal <br /><br /><b>Software/Language Used:</b> Scratch / Scratch Block Code</pre>
+        <br /><br /><br />
+        <p class="text">A Star Wars Fan game inspired by Republic Commando.</p>
+        <video class="videoSmall" controls>
+            <source src="RepCommando/RepublicCommandoGameplay.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Tabs for different sections of content -->
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Section1')">Section 1</button>
+            <button class="tablinks" onclick="openTab(event, 'Section2')">Section 2</button>
+            <button class="tablinks" onclick="openTab(event, 'Section3')">Section 3</button>
+
+        </div>
+
+        <div id="Section1" class="tabcontent">
+            <h3 class="title">Section 1</h3>
+            <p class="text">Bla bla bla</p>
+            <hr />
+
+            <!-- Accordion for subsections, that allows for more information on specific things -->
+            <button class="accordion">Sub-Section 1</button>
+            <div class="accordPanel">
+                <p class="text"> More specific bla bla bla</p>
+            </div>
+            <hr />
+            <button class="accordion">Sub-Section 2</button>
+            <div class="accordPanel">
+                <img src="conquer/Conquer.png" alt="Conquer: My Text-Based Game" class="projectImg" />
+                <p class="text">Example Image</p>
+                <video class="videoSmall" autoplay muted loop>
+                    <source src="Video.mp4" type="video/mp4" />
+                </video>
+                <p class="text">Example Video</p>
+            </div>
+        </div>
+
+        <div id="Section2" class="tabcontent">
+            <h3 class="title">Section 2</h3>
+            <p class="text">Bleep bleep bleep</p>
+        </div>
+
+        <div id="Section3" class="tabcontent">
+            <h3 class="title">Section 3</h3>
+            <p class="text">Boing boing boing</p>
+        </div>
+    </div>
+
+
+    <div class="infoBox">
+        <h1 class="center title">Contact</h1>
+        <p class="center text">If you want to message me, please do so here: <a href="mailto:coreygfives@gmail.com" style="color: whitesmoke; text-decoration: underline;">coreygfives@gmail.com</a>, I'll be sure to respond as quick as possible!<br /></p>
+    </div>
+
+    <br />
+
+    <footer class="center text" style="background-color:black;padding:10px;">This is the End :)</footer>
+
+    <nav>
+        <ul class="navigation" id="nav">
+            <li><span class="navText">Corey Graham</span></li>
+            <li class="navText"></li>
+            <li><a href="../index.html#About" class="navItem">ABOUT</a></li>
+            <li><a href="../index.html#Prog" class="navItem">PROGRAMMING</a></li>
+            <li><a href="../index.html#Design" class="navItem">DESIGN</a></li>
+            <li><a href="" class="navItem">CV</a></li>
+            <li class="navIcon">
+                <a herf="javascript:void(0);" onclick="navColapse()">
+                    <i class="material-icons">subject</i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        //function for images changing in background
+        var k = 0;
+        slideShow();
+        function slideShow() {
+            if (k == 0) {
+                document.body.style.backgroundImage = "url('RepCommando/RepComando.png')";
+            }
+            else if (k == 1) {
+                document.body.style.backgroundImage = "url('RepCommando/RepComando.png')";
+            }
+            else if (k == 2) {
+                document.body.style.backgroundImage = "url('RepCommando/RepComando.png')";
+            }
+            k++;
+            if (k > 2) {
+                k = 0;
+            }
+            setTimeout(slideShow, 5000); //Changes image every 3 seconds
+        }
+
+        function navColapse() {
+            var x = document.getElementById("nav");
+            if (x.className === "navigation") {
+                x.className += " responsive";
+            }
+            else {
+                x.className = "navigation";
+            }
+        }
+
+        //Tab fuction to open different sections of stuff
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace("active", "");
+            }
+
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        //Accordion function to enable the opening and closing of sub-sections
+        var acc = document.getElementsByClassName("accordion");
+        var j;
+
+        for (j = 0; j < acc.length; j++) {
+            acc[j].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                }
+                else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+
+<!-- This is the code to my website, Read if you dare :) -->
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corey Graham - Game Programming Portfolio</title>
+
+    <link rel="stylesheet" href="../StyleSheet.css" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body id="body">
+    <!-- Large box that fades background in and out -->
+    <div class="fadingInAndOut"></div>
+
+    <!-- Main information on project -->
+    <div class="projectBox">
+        <h1 class="title" style="font-size:90px">Game Dev VS Ai</h1>
+        <hr />
+        <p class="center text">RPG</p>
+        <pre class="center text"><b>Project Type:</b> University Game Jam <br /><br /><b>Software/Language Used:</b> Scratch / Scratch Block Code</pre>
+        <br /><br /><br />
+        <p class="text">An RPG that features Rhythm based elements.</p>
+        <video class="videoSmall" controls>
+            <source src="GameDevVsAiGameplay.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Tabs for different sections of content -->
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Section1')">Controls</button>
+            <button class="tablinks" onclick="openTab(event, 'Section2')">Gameplay Implementation</button>
+            <button class="tablinks" onclick="openTab(event, 'Section3')">Visual Design</button>
+
+        </div>
+
+        <div id="Section1" class="tabcontent">
+            <h3 class="title">Controls</h3>
+            <p class="text">The controls are a mixture of keys and clickable objects. For the sequences, WASD or arrow keys are used to complete the sequences and during the openning cutscene, the any key can be used to progress. Meanwhile, during upgrading and perk selection, the second sections action selection and the title screen clickable objects are used to make selection easier to see.</p>
+            <hr />
+
+            <!-- Accordion for subsections, that allows for more information on specific things -->
+            <button class="accordion">Key input Check Blocks</button>
+            <div class="accordPanel">
+                <p class="text">The image below shows how key input is checked during sequences.</p>
+                <img src="KeysCheck.png" alt="Key Check Blocks" class="stdImg" />
+            </div>
+            <hr />
+            <button class="accordion">Upgrade Blocks</button>
+            <div class="accordPanel">
+                <p class="text">The image below shows how the different upgrades can be clicked on for upgrading.</p>
+                <img src="Upgrades.png" alt="Upgrade Blocks" class="stdImg" />
+            </div>
+        </div>
+
+        <div id="Section2" class="tabcontent">
+            <h3 class="title">Gameplay</h3>
+            <p class="text">Gameplay is split up into 2 sections, with 2 sub-sections to those. The first section has the player complete as many sequences of directional key inputs as they can while a 30s timer counts down. Each completed sequence grants the player points for the length of the sequence.</p>
+            <video class="videoSmall" autoplay muted loop>
+                <source src="GDvsAISnippet.mp4" type="video/mp4" />
+            </video>
+            <img src="Section1.png" alt="Section 1" class="stdImg" />
+            <hr />
+            <button class="accordion">Sequence & Key Blocks</button>
+            <div class="accordPanel">
+                <p class="text">Sequences are formed randomly by selecting a length and having each key randomised. The images below show the randomisation.</p>
+                <img src="SequenceSetUp.png" alt="Sequence Set Up Blocks" class="stdImg" />
+                <img src="KeySetUp.png" alt="Key Set Up Blocks" class="stdImg" />
+                <p class="text">Each key is handles by an individual object, so that each know when they are triggered and can track the progress the player makes.</p>
+                <img src="KeysCheck.png" alt="Keys Check Blocks" class="stdImg" />
+                <img src="KeyCleared.png" alt="Key Cleared Blocks" class="stdImg" />
+            </div>
+            <hr />
+            <p class="text">After the time limit is up, the player can then upgrade the stats of their game, which upgrades the effectiveness of their actions in the second section. Each upgrade has 4 tiers higher than base. Once the player has finished spending their points on upgrades they can click the ready button at the bottom of the screen to proceed to the next section.</p>
+            <img src="UpgradeSection.png" alt="Section 1" class="stdImg" />
+            <hr />
+            <button class="accordion">Upgrade Blocks</button>
+            <div class="accordPanel">
+                <p class="text">The image below shows how the different upgrades can be clicked on for upgrading.</p>
+                <img src="Upgrades.png" alt="Upgrade Blocks" class="stdImg" />
+            </div>
+            <hr />
+            <p class="text">The second section functions like an RPG, where the player and Robot take turns using 1 of 4 available actions to win the support of the crowd.</p>
+            <ul class="text">
+                <li>The Attack action gains a set amount of support with the player being able to complete sequences to gain additional support.</li>
+                <li>The Defence action gains defence points which stop the opponent from gain support until all defence points are gone.</li>
+                <li>The Counter action gains support only from sequences complete, but gains significantly more support for each sequence than the Attack action. For the Robot, this action randomises how much support they gain, with a variable amount above and below that of the Attack Action.</li>
+                <li>The Banter action gains a boost to the next action performed. This doesn't chain into itself.</li>
+            </ul>
+            <img src="Section2.png" alt="Section 2" class="stdImg" />
+            <p class="text">After 6 rounds, a winner is decided by the support bar at the top of the screen. The amount the bar has to be filled for the player depends on the difficulty of the robot which increases with each loop of the game. This difficulty increace also affect the strength of each action for the Robot.</p>
+            <img src="EnemyColour.png" alt="Enemy Colour" class="stdImg" />
+            <hr />
+            <button class="accordion">Player Action Blocks</button>
+            <div class="accordPanel">
+                <p class="text">The images below show the player actions and their effect.</p>
+                <img src="PActions1.png" alt="Player Actions Blocks 1" class="stdImg" />
+                <img src="PActions2.png" alt="Player Actions Blocks 2" class="stdImg" />
+                <img src="PActions3.png" alt="Player Actions Blocks 3" class="stdImg" />
+            </div>
+            <hr />
+            <button class="accordion">Robot Action and AI Blocks</button>
+            <div class="accordPanel">
+                <p class="text">The images below show the robot actions and their effect aswell as the robot AI.</p>
+                <img src="RActions1.png" alt="Robot Actions Blocks 1" class="stdImg" />
+                <img src="RActions2.png" alt="Robot Actions Blocks 2" class="stdImg" />
+                <img src="RActions3.png" alt="Robot Actions Blocks 3" class="stdImg" />
+                <img src="RobotAI.png" alt="Robot AI Blocks" class="stdImg" />
+            </div>
+            <hr />
+            <p class="text">If the player wins the second section they get the choice between 2 perks for the next gameplay loop. These perks include:</p>
+            <ul class="text">
+                <li>Starting Support</li>
+                <li>Starting Defence</li>
+                <li>Starting Game Points</li>
+                <li>Safe keys: allows player to continue sequences without getting reset on a fail.</li>
+            </ul>
+            <img src="Perks.png" alt="Perks Section" class="stdImg" />
+            <p class="text">If the player looses to the robot, the game ends.</p>
+            <img src="GameOver.png" alt="Game Over" class="stdImg" />
+
+        </div>
+
+        <div id="Section3" class="tabcontent">
+            <h3 class="title">Visual Design: Section 1</h3>
+            <p class="text">The visual design of the game focuses on simplicity. For the first section of the game the sequences that the player has to complete are shown at the bottom of the screen while the time is placed at the top and the points gain are on the side. This places each important element in clear view, seperated by the animation of the player character typing code onto their monitor. These animations are achieved through swapping constumes (for example, 1 costume is the player character upright and one is slightly squished, creating a bobbing effect).</p>
+            <video class="videoSmall" autoplay muted loop>
+                <source src="GDvsAISnippet.mp4" type="video/mp4" />
+            </video>
+            <img src="Section1.png" alt="Section 1" class="stdImg" />
+            <hr />
+            <button class="accordion">Timer Blocks</button>
+            <div class="accordPanel">
+                <p class="text">The timer functions by switching to a costume based on a variable, creating a smooth and acurate timer.</p>
+                <img src="Timer.png" alt="Timer Blocks" class="stdImg" />
+            </div>
+            <hr />
+            <p class="text">Sequence keys have a green tick effect when entered correctly and red x effect when the opposite. This coupled with a sound que helps the player tell where they are at in the sequence.</p>
+            <img src="KeyCheckVisual.png" alt="Key Check Visual" class="stdImg" />
+            <br />
+            <h3 class="title">Section 2</h3>
+            <p class="text">For the second section, it was important to create the atmoshpere of the conflict with the robot. In order to do this, I created a layout in the style of a live debate. The crowd aspect of this is done through cloning and randomising costume and response timing, making the crowd feel believable. This is coupled with a spotlight effect on both the player and robots turn.</p>
+            <img src="Section2.png" alt="Section 2" class="stdImg" />
+            <hr />
+            <button class="accordion">Crowd Blocks</button>
+            <div class="accordPanel">
+                <p class="text">The functions below show how the crowd is created and reacts to the events in game.</p>
+                <img src="CrowdSpawn.png" alt="Crowd Spawn Blocks" class="stdImg" />
+                <img src="CrowdRand.png" alt="Crowd Randomising Blocks" class="stdImg" />
+                <img src="CrowdReaction.png" alt="Crowd Reaction Blocks 1" class="stdImg" />
+                <img src="CrowdReactions2.png" alt="Crowd Reaction Blocks 2" class="stdImg" />
+            </div>
+            <hr />
+            <p class="text">The player options are displayed at the bottom of the screen in an rpg styled way and the support bar is placed at the top, representing which side is winning. When the player or robot take actions, particle effects appear around them to represent what they are gaining (defence, support or power for their next move).</p>
+            <hr />
+            <button class="accordion">Particles Blocks</button>
+            <div class="accordPanel">
+                <p class="text">The functions below show how particles spawn.</p>
+                <img src="ParticleSpawn.png" alt="Particle Spawn Blocks" class="stdImg" />
+            </div>
+            <hr />
+            <p class="text">Both of these sections have tutorials that explain them on first expirience. They have boxes of text that point to each relevant area and explain their purpose.</p>
+            <img src="Tutorial1.png" alt="Tutorial 1" class="stdImg" />
+            <img src="Tutorial2.png" alt="Tutorial 2" class="stdImg" />
+            <h3 class="title">Upgrading and Perks Sections</h3>
+            <p class="text">Both of these sections follow a similar design idea of having clear distinction of each option. With the Upgrade section, I used the visuals to relate to the coding of the first section by using a green boarder.</p>
+            <img src="UpgradeSection.png" alt="Upgrade Section" class="stdImg" />
+            <img src="Perks.png" alt="Perks Section" class="stdImg" />
+        </div>
+    </div>
+
+
+    <div class="infoBox">
+        <h1 class="center title">Contact</h1>
+        <p class="center text">If you want to message me, please do so here: <a href="mailto:coreygfives@gmail.com" style="color: whitesmoke; text-decoration: underline;">coreygfives@gmail.com</a>, I'll be sure to respond as quick as possible!<br /></p>
+    </div>
+
+    <br />
+
+    <footer class="center text" style="background-color:black;padding:10px;">This is the End :)</footer>
+
+    <nav>
+        <ul class="navigation" id="nav">
+            <li><span class="navText">Corey Graham</span></li>
+            <li class="navText"></li>
+            <li><a href="../index.html#About" class="navItem">ABOUT</a></li>
+            <li><a href="../index.html#Prog" class="navItem">PROGRAMMING</a></li>
+            <li><a href="../index.html#Design" class="navItem">DESIGN</a></li>
+            <li><a href="" class="navItem">CV</a></li>
+            <li class="navIcon">
+                <a herf="javascript:void(0);" onclick="navColapse()">
+                    <i class="material-icons">subject</i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        //function for images changing in background
+        var k = 0;
+        slideShow();
+        function slideShow() {
+            if (k == 0) {
+                document.body.style.backgroundImage = "url('GDvsAI.png')";
+            }
+            else if (k == 1) {
+                document.body.style.backgroundImage = "url('Section1.png')";
+            }
+            else if (k == 2) {
+                document.body.style.backgroundImage = "url('Section2.png')";
+            }
+            k++;
+            if (k > 2) {
+                k = 0;
+            }
+            setTimeout(slideShow, 5000); //Changes image every 3 seconds
+        }
+
+        function navColapse() {
+            var x = document.getElementById("nav");
+            if (x.className === "navigation") {
+                x.className += " responsive";
+            }
+            else {
+                x.className = "navigation";
+            }
+        }
+
+        //Tab fuction to open different sections of stuff
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace("active", "");
+            }
+
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        //Accordion function to enable the opening and closing of sub-sections
+        var acc = document.getElementsByClassName("accordion");
+        var j;
+
+        for (j = 0; j < acc.length; j++) {
+            acc[j].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                }
+                else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+
+
+</body>
+</html>

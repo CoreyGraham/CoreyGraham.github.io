@@ -1,0 +1,550 @@
+﻿<!DOCTYPE html>
+
+<!-- This is the code to my website, Read if you dare :) -->
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corey Graham - Game Programming Portfolio</title>
+
+    <link rel="stylesheet" href="../StyleSheet.css" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body id="body">
+    <!-- Large box that fades background in and out -->
+    <div class="fadingInAndOut"></div>
+
+    <!-- Main information on project -->
+    <div class="projectBox">
+        <h1 class="title" style="font-size:90px">Quantum War</h1>
+        <hr />
+        <p class="center text">Top-down Shooter Game</p>
+        <pre class="center text"><b>Project Type:</b> University <br /><br /><b>Software/Language Used:</b> Unreal Engine / Blueprint(C++)</pre>
+        <br /><br /><br />
+        <p class="text">Quantum War is a Top-down Shooter that uses elements of dungeon crawlers in its first level to introduce the player to the mechanics of the game and the thematic Journey they will go on.</p>
+        <video class="videoSmall" controls>
+            <source src="QuantumWarGameplay.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Tabs for different sections of content -->
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Section1')">Player Controls</button>
+            <button class="tablinks" onclick="openTab(event, 'Section2')">Weapons & Power Ups</button>
+            <button class="tablinks" onclick="openTab(event, 'Section3')">Enemies</button>
+            <button class="tablinks" onclick="openTab(event, 'Section4')">Enviromental Elements</button>
+            <button class="tablinks" onclick="openTab(event, 'Section5')">Level Design</button>
+            <button class="tablinks" onclick="openTab(event, 'Section6')">Design Documentation & Ideas</button>
+        </div>
+
+        <div id="Section1" class="tabcontent">
+            <h3 class="title">Player Controls</h3>
+            <p class="text">In this game, the player controls a tank made up of a body and turret. The turret rotates according to the players mouse potition in relation to the body. When the player moves, the body rotates to point in the direction of movement. The camera follows the player at a fixed distance and can be rotated around the player to a point and also reset to its original rotation (with the Y-axis to be specific). Lastly, the player can left click to fire their weapon and right click to fire a missile.</p>
+            <video class="videoSmall" autoplay loop muted>
+                <source src="TestingRangeVideo.mp4" type="video/mp4" />
+            </video>
+            <img src="CameraControl.png" alt="Camera Controls Blueprint Snippet" class="stdImg" />
+        </div>
+
+        <div id="Section2" class="tabcontent">
+            <h3 class="title">Weapons</h3>
+            <p class="text">The player has several weapons available. These weapons appear as pick ups and will swap the appearence of the turret on the player tank.<br />First is the <b>Main weapon</b>.</p>
+            <img src="PiercingWeapon.png" alt="Piercing Weapon Model" class="stdImg" />
+            <p class="text">This weapon has standard fire rate and projectile but also has 4 different upgrades that gradually make it stronger. These upgrades are obtained as followed:</p>
+            <ul class="text">
+                <li>Accelerated Fire: Faster fire rate.</li>
+                <li>Dual Shot: Two projectiles are fired for each shot.</li>
+                <li>Peircing Shot: Projectiles pierce through enemies and shields.</li>
+                <li>Tri Shot: Each projectile also has projectile either side of it.</li>
+            </ul>
+            <br />
+            <video class="videoSmall" autoplay loop muted>
+                <source src="MainWeaponVideo.mp4" type="video/mp4" />
+            </video>
+            <hr />
+            <button class="accordion">Main Weapon Blueprint</button>
+            <div class="accordPanel">
+                <p class="text">The blueprint below shows the main weapon's firing blocks.</p>
+                <img src="MainWeaponFire.png" alt="Main Weapon Fire Blueprint Snippet" class="stdImg" />
+            </div>
+            <hr />
+
+            <!-- Accordion for subsections, that allows for more information on specific things -->
+            <p class="text">Next is the <b>Shotgun weapon</b>.</p>
+            <img src="ShotgunWeapon.png" alt="Shotgun Weapon Model" class="stdImg" />
+            <p class="text">This weapon fires several projectiles with a short range and also features a charge mechanic where the number of projectiles increaces the longer the fire button is held (to a maximum).</p>
+            <br />
+            <video class="videoSmall" autoplay loop muted>
+                <source src="ShotgunWeaponVideo.mp4" type="video/mp4" />
+            </video>
+            <hr />
+            <button class="accordion">Shotgun Weapon Blueprint</button>
+            <div class="accordPanel">
+                <p class="text">The blueprint below shows the Shotgun weapon's charging blocks.</p>
+                <img src="ShotgunWeaponFire.png" alt="Shotgun Weapon Fire Blueprint Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <p class="text">Next is the <b>Blade weapon</b>.</p>
+            <img src="BladeWeapon.png" alt="Blade Weapon Model" class="stdImg" />
+            <p class="text">This weapon fires a blade that explodes into several blades when it hits something. It also uses the charge mechanic, so that the longer the charge, the more blades are shot out upon contact. (The video below shows an early version of the Blade Weapon.)</p>
+            <br />
+            <video class="videoSmall" autoplay loop muted>
+                <source src="BladeWeaponVideo.mp4" type="video/mp4" />
+            </video>
+            <hr />
+            <button class="accordion">Blade Weapon Blueprints</button>
+            <div class="accordPanel">
+                <p class="text">The blueprint below shows the Blade weapon's charging blocks.</p>
+                <img src="BladeWeaponCharge.png" alt="Blade Weapon Charge Blueprint Snippet" class="stdImg" />
+                <p class="text">The blueprint below shows the Blade projectile blocks.</p>
+                <img src="BladeProjectile.png" alt="Blade Projectile Blueprint Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <p class="text">Next is the <b>Flamethrower weapon</b>.</p>
+            <img src="FlamethrowerWeapon.png" alt="Flamethrower Weapon Model" class="stdImg" />
+            <p class="text">This weapon fires slow moving projectiles in a constant stream to create a flame emitting effect. This is also the only other weapon with spread to its normal fire (the Shotgun being the first).</p>
+            <br />
+            <video class="videoSmall" autoplay loop muted>
+                <source src="Flamethrower.mp4" type="video/mp4" />
+            </video>
+            <hr />
+            <button class="accordion">Flamethrower Effect Blueprint</button>
+            <div class="accordPanel">
+                <p class="text">The blueprint below shows the Flamethrower effect blocks.</p>
+                <img src="FlameEffect.png" alt="Flamethrower effect Blueprint Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <p class="text">Next is the <b>Electricity weapon</b>.</p>
+            <img src="ElectricWeapon.png" alt="Electricity Weapon Model" class="stdImg" />
+            <p class="text">This weapon fires projectiles that bounce to nearby enemies. It has a collider that detects enemies to bounce to and when hitting an enemy, it adds it to an array of hit enemies to ensure it cannot bounce between 2 enemies repeatedly.</p>
+            <br />
+            <video class="videoSmall" autoplay loop muted>
+                <source src="ElectricWeaponVideo.mp4" type="video/mp4" />
+            </video>
+            <hr />
+            <button class="accordion">Electricity Projectile Blueprint</button>
+            <div class="accordPanel">
+                <p class="text">The blueprint below shows the Electricity Projectile blocks.</p>
+                <img src="ElectricityProjectile.png" alt="Electricity Projectile Blueprint Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <p class="text">Lastly, we have the <b>Motor weapon</b>.</p>
+            <img src="MotorWeapon.png" alt="Motor Weapon Model" class="stdImg" />
+            <p class="text">This weapon fires a projectile in an arc that then explodes on contact. It has a charge effect that increases range with charge time (to a maximum).</p>
+            <br />
+            <video class="videoSmall" autoplay loop muted>
+                <source src="MotorWeaponVideo.mp4" type="video/mp4" />
+            </video>
+            <hr />
+            <button class="accordion">Motor Weapon Blueprints</button>
+            <div class="accordPanel">
+                <p class="text">The blueprint below shows the Motor charge blocks.</p>
+                <img src="MotorWeaponCharge.png" alt="Motor charge Blueprint Snippet" class="stdImg" />
+                <p class="text">The blueprint below shows the Motor weapon's blocks.</p>
+                <img src="MotorWeaponFire.png" alt="Motor Weapon Blueprint Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <h3 class="title">Power Ups & Pick Ups</h3>
+            <p class="text">The player can also find Power ups that boost their capabilities and Pick ups which grant health and ammunition for missiles (which will be covered soon).</p>
+            <img src="PowerUp.png" alt="Early Power Up Model" class="stdImg" />
+            <p class="text">Each power up has a limited time once accuired. There are two Power Ups in the game:</p>
+            <ul class="text">
+                <li>Rapid Fire: Maximises fire rate/ charge speed.</li>
+                <li>Lazer Sight: Creates a lazer sight on the players turrent.</li>
+            </ul>
+            <br />
+            <video class="videoSmall" autoplay loop muted>
+                <source src="FactoryVideo.mp4" type="video/mp4" />
+            </video>
+            <p class="text">Both Power ups and Pick ups drop randomly from enemies.</p>
+            <hr />
+            <button class="accordion">Random Drops Blueprint</button>
+            <div class="accordPanel">
+                <p class="text">The blueprint below shows the enemies random drops blocks.</p>
+                <img src="RandomDrops.png" alt="Random Drops Blueprint Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <h3 class="title">Missiles</h3>
+            <p class="text">Lastly, the player can fire missiles by pressing right click. These missiles will travel, collide and then explode causing damage similarly to the Motor weapon.</p>
+            <img src="Rocket.png" alt="Rocket Model" class="stdImg" />
+            <br />
+        </div>
+
+        <div id="Section3" class="tabcontent">
+            <h3 class="title">Enemies: Turrets</h3>
+            <p class="text">The first type of enemy is turret enemies. These enemies are always fixed in place and fire different kind of projectiles:</p>
+            <ul class="text">
+                <li>Regular Shot</li>
+                <li>Fast-Multi Shot</li>
+                <li>Slow-Spread Shot</li>
+                <li>Flame Shot (Slow-Continuous)</li>
+            </ul>
+            <p class="text">Some of these turrets can have special qualities like rotating constantly or being shielded.</p>
+            <video class="videoSmall" autoplay loop muted>
+                <source src="WalkwayVideo.mp4" type="video/mp4" />
+            </video>
+            <hr />
+            <button class="accordion">Turret rotation Blueprint</button>
+            <div class="accordPanel">
+                <p class="text">The blueprint below shows the turret enemies rotation to player blocks.</p>
+                <img src="TurretRotation.png" alt="Turret Rotation Blueprint Snippet" class="stdImg" />
+                <p class="text">The blueprint below shows the flame turret enemies constant rotation blocks.</p>
+                <img src="FlameTurrent.png" alt="Flame Turret Blueprint Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <h3 class="title">Enemies: Tank</h3>
+            <p class="text">The next type of enemy is Tank enemies. These enemies can be mobile, have more health than turrets and have a greater variety of attacks:</p>
+            <ul class="text">
+                <li>Acid tanks drop Pools of Acid on the ground that harm the player.</li>
+                <li>Heavy tanks are fixed in place and fire powerful projectiles that do high damage.</li>
+                <li>Regular tanks follow the player and shoot directly infront of them.</li>
+                <li>Spread tanks are fixed and fire multiple projectiles in different directions.</li>
+            </ul>
+            <video class="videoSmall" autoplay loop muted>
+                <source src="FactoryVideo.mp4" type="video/mp4" />
+            </video>
+            <p class="text">The spread tank has a veriance where it fires flame projectiles upwards that fall down on their enemy.</p>
+            <hr />
+            <button class="accordion">Falling Flame Fire Blueprint</button>
+            <div class="accordPanel">
+                <p class="text">The blueprint below shows the Tank projectile fire blocks.</p>
+                <img src="EnemyFallingFlame.png" alt="Enemy Falling Flame Blueprint Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <h3 class="title">Enemies: Spider</h3>
+            <p class="text">This enemy serves as the boss of the level and works by firing several rocket projectiles in quick sucsession with long delays. Their design is alien compared to the other enemies, showing a glipse into the greater world of the game.</p>
+            <img src="RocketSpider.png" alt="Spider Enemy Model" class="stdImg" />
+            <video class="videoSmall" autoplay loop muted>
+                <source src="SpiderEnemy.mp4" type="video/mp4" />
+            </video>
+            <hr />
+            <button class="accordion">Missile Hatch Animation Blueprint</button>
+            <div class="accordPanel">
+                <p class="text">The blueprint below shows the Spider enemy missile hatch animation blocks.</p>
+                <img src="MissileHatchAnimation.png" alt="Missile Hatch Animation Blueprint Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <h3 class="title">Mini Boss Enemy</h3>
+            <p class="text">During an earlier section of the level, the player encounters a mini boss which works by spawning turrets randomly on several platforms with each wave of turrets being greater than the last. To visually show this, the turrets are lowered below view, spawned and then raised up, with a grate sliding over the hole they come from to stop the player falling in.</p>
+            <img src="MiniBoss1.png" alt="Energy Control Room View 1" class="stdImgCrop" />
+            <video class="videoSmall" autoplay loop muted>
+                <source src="MiniBossVideo.mp4" type="video/mp4" />
+            </video>
+            <hr />
+            <button class="accordion">Mini Boss Blueprints</button>
+            <div class="accordPanel">
+                <p class="text">The blueprint below shows the blocks for spawning turrets.</p>
+                <img src="MiniBossTurrentsSpawn.png" alt="Turret Spawn Blueprint Snippet 1" class="stdImgCrop" />
+                <img src="MiniBossTurrentsSpawn2.png" alt="Turret Spawn Blueprint Snippet 2" class="stdImgCrop" />
+                <p class="text">The blueprint below shows the blocks for counting down remaining turrets.</p>
+                <img src="MiniBossTurrentCountCheck.png" alt="Turret Countdown Blueprint Snippet" class="stdImgCrop" />
+                <p class="text">The blueprint below shows the blocks for setting the hight of a turret to allign.</p>
+                <img src="MiniBossTurrentHightSet.png" alt="Turret Height Setting Blueprint Snippet" class="stdImg" />
+            </div>
+            <hr />
+        </div>
+
+        <div id="Section4" class="tabcontent">
+            <h3 class="title">Enviromental Elements</h3>
+            <p class="text">The level feature many enviromental elements which interact with the player and enemies. The simplist of these include:</p>
+            <ul class="text">
+                <li>Healing areas</li>
+                <li>Lava areas (which cause damage over time).</li>
+                <li>Doors which activate when the player enters a collider around them.</li>
+                <li>Elevators which move when the player enters a collider above them.</li>
+                <li>Explosive barrels which explode upon any damage and will damage all in its explosion radius.</li>
+                <li>Targets that disappear upon damage.</li>
+                <li>Shields that block player projectiles.</li>
+                <li>Conveyor belts that move both player and enemies in a given direction.</li>
+            </ul>
+            <video class="videoSmall" autoplay loop muted>
+                <source src="RespawnVideo.mp4" type="video/mp4" />
+            </video>
+            <hr />
+            <button class="accordion">Elevator Blueprints</button>
+            <div class="accordPanel">
+                <p class="text">The blueprint below shows the blocks for Elevator functionallity.</p>
+                <img src="ElevatorActivation.png" alt="Elevator Activation Blueprint Snippet" class="stdImgCrop" />
+                <img src="ElevatorBlueprint.png" alt="Elevator Blueprint Snippet" class="stdImgCrop" />
+            </div>
+            <hr />
+            <button class="accordion">Target Blueprints</button>
+            <div class="accordPanel">
+                <p class="text">The blueprint below shows the blocks for targets and target reset.</p>
+                <img src="TargetsBlueprint.png" alt="Targets Blueprint Snippet" class="stdImgCrop" />
+                <img src="TargetReset.png" alt="Turret Reset Blueprint Snippet" class="stdImgCrop" />
+            </div>
+            <hr />
+            <button class="accordion">Conveyor Blueprints</button>
+            <div class="accordPanel">
+                <p class="text">The blueprint below shows the blocks for Conveyor Movement and Animation.</p>
+                <img src="ConveyorMovement.png" alt="Conveyor Movement Blueprint Snippet" class="stdImgCrop" />
+                <img src="ConveyorAnimation.png" alt="Conveyor Animation Blueprint Snippet" class="stdImgCrop" />
+            </div>
+            <hr />
+        </div>
+
+        <div id="Section5" class="tabcontent">
+            <h3 class="title">Level Design</h3>
+            <p class="text">The design of the level follows a Military factory idea. The layout and specific rooms are placed in a way to give the impression of a production line that generates the vehicle the player operates, while also including rooms that would handle specific facillities in the factory. A layout of the level is shows below:</p>
+            <img src="DesignDoc5.png" alt="Design Documentation Page 5" class="stdImg" />
+            <h3 class="title">Starting Room & Corridoor</h3>
+            <p class="text">The level starts the player in an isolated hanger with signs of conflict around them (damaged tanks). When the player approaches the door opposite them, they enter the corridoor which has more signs of destruction. In this corridoor the player has their first combat encounter against turrets (single fire, flame and spread variants), giving them a feel for combat with a low difficulty challenge. They are also granted a free Lazer sight power up to make aiming easier. This corridoor leads the player to the next room...</p>
+            <img src="StartingArea.png" alt="Starting Area View" class="stdImgCrop" />
+            <img src="Hallway4.png" alt="Corridoor View 4" class="stdImgCrop" />
+            <hr />
+            <button class="accordion">More Images</button>
+            <div class="accordPanel">
+                <img src="Hallway1.png" alt="Corridoor View 1" class="stdImgCrop" />
+                <img src="Hallway2.png" alt="Corridoor View 2" class="stdImgCrop" />
+                <img src="Hallway3.png" alt="Corridoor View 3" class="stdImgCrop" />
+            </div>
+            <hr />
+            <h3 class="title">Energy Control Room</h3>
+            <p class="text">The next room the player comes across is the Energy Control Room which features a mini-boss style of enemy. This enemy triggers after the player obtains an upgrade to their main weapon and work through a series of rounds in which enemy turrets spawn randomly. The room features a centeral area and an upper elevation around the room with health pick ups. Th room also features explosive barrels around the inner area.</p>
+            <video class="videoSmall" autoplay loop muted>
+                <source src="MiniBossVideo.mp4" type="video/mp4" />
+            </video>
+            <img src="MiniBoss1.png" alt="Energy Control Room View 1" class="stdImgCrop" />
+
+            <hr />
+            <button class="accordion">More Images</button>
+            <div class="accordPanel">
+                <img src="MiniBoss2.png" alt="Energy Control Room View 2" class="stdImgCrop" />
+                <img src="MiniBoss3.png" alt="Energy Control Room View 3" class="stdImgCrop" />
+                <img src="MiniBoss4.png" alt="Energy Control Room View 4" class="stdImgCrop" />
+            </div>
+            <hr />
+            <h3 class="title">Walkway Tunnel</h3>
+            <p class="text">After the mini-boss is defeated, the player then enters a walkway in a cavern along the side of the facillity. This walkway introduces stronger turrets and presents the scale of the facillity.</p>
+            <video class="videoSmall" autoplay loop muted>
+                <source src="WalkwayVideo.mp4" type="video/mp4" />
+            </video>
+            <img src="LeftWalkway.png" alt="Walkway View 1" class="stdImgCrop" />
+            <hr />
+            <button class="accordion">More Images</button>
+            <div class="accordPanel">
+                <img src="LeftWalkway2.png" alt="Walkway View 2" class="stdImgCrop" />
+                <img src="LeftWalkway3.png" alt="Walkway View 3" class="stdImgCrop" />
+            </div>
+            <hr />
+            <h3 class="title">Server Room</h3>
+            <p class="text">The next room is the Server room, which introduces a puzzle revolving around the Electricity weapon. The center of the room has a walled of area of targets with a control device in the center that is tied to a gate at the otherside of the room. The room also features platforms which reset the targets.</p>
+            <video class="videoSmall" autoplay loop muted>
+                <source src="PuzzleVideo.mp4" type="video/mp4" />
+            </video>
+            <img src="PuzzleRoom.png" alt="Server Room View 1" class="stdImgCrop" />
+            <hr />
+            <button class="accordion">More Images</button>
+            <div class="accordPanel">
+                <img src="PuzzleRoomEntrance.png" alt="Server Room View 2" class="stdImgCrop" />
+            </div>
+            <hr />
+            <h3 class="title">Assembly Plant</h3>
+            <p class="text">The player then travels through the corridoor from before to get to the Assembly Plant. This is the largest room and features several stronger enemies, including mobile enemies. It also grant the player another main weapon upgrade and introduces conveyor belts to the player. Once all enemies are defeated, an elevator to the next area is activated.</p>
+            <video class="videoSmall" autoplay loop muted>
+                <source src="FactoryVideo.mp4" type="video/mp4" />
+            </video>
+            <img src="Factory1Front.png" alt="Factory View 1" class="stdImgCrop" />
+            <hr />
+            <button class="accordion">More Images</button>
+            <div class="accordPanel">
+                <img src="Factory1Front2.png" alt="Factory View 2" class="stdImgCrop" />
+                <img src="Factory1Middle.png" alt="Factory View 3" class="stdImgCrop" />
+                <img src="Factory1Back.png" alt="Factory View 4" class="stdImgCrop" />
+                <img src="Factory1Back2.png" alt="Factory View 5" class="stdImgCrop" />
+            </div>
+            <hr />
+            <h3 class="title">Magma Cave</h3>
+            <p class="text">After the player uses the elevator, they enter the Magma Cave in which they are granted the Shotgun for this area. It features several flame based enemies allong with lava which reduces the amount of space the player can safely drive on.</p>
+            <video class="videoSmall" autoplay loop muted>
+                <source src="MagmaCaveVideo.mp4" type="video/mp4" />
+            </video>
+            <img src="MagmaCave.png" alt="Magma Cave View 1" class="stdImgCrop" />
+            <hr />
+            <button class="accordion">More Images</button>
+            <div class="accordPanel">
+                <img src="MagmaCave2.png" alt="Magma Cave View 2" class="stdImgCrop" />
+                <img src="MagmaCave3.png" alt="Magma Cave View 3" class="stdImgCrop" />
+                <img src="MagmaCaveEntrance.png" alt="Magma Cave Entrance" class="stdImgCrop" />
+            </div>
+            <hr />
+            <h3 class="title">Smelting Plant</h3>
+            <p class="text">This room connects the next section of the level with the exit which can only be accessed through the use of a specific power up.</p>
+            <img src="Factory2.png" alt="Smelting Plant View" class="stdImgCrop" />
+            <br />
+            <h3 class="title">Ventilation System</h3>
+            <p class="text">The ventilation system presents the player with a final challenge before the boss of the level. It introduces shields that block player fire and grants the player the Piercing upgrade to their main weapon.</p>
+            <video class="videoSmall" autoplay loop muted>
+                <source src="RespawnVideo.mp4" type="video/mp4" />
+            </video>
+            <img src="Vent1.png" alt="Vents View 1" class="stdImgCrop" />
+            <hr />
+            <button class="accordion">More Images</button>
+            <div class="accordPanel">
+                <img src="Vent2.png" alt="Vents View 2" class="stdImgCrop" />
+                <img src="Vent3.png" alt="Vents View 3" class="stdImgCrop" />
+                <img src="VentEntrance.png" alt="Vents Entrance" class="stdImgCrop" />
+            </div>
+            <hr />
+            <h3 class="title">Boss Room</h3>
+            <p class="text">The Boss room is split into an upper and lower area. The lower area forces the player to avoid the enemy attacks while attacking an object blocking the elevator to the upper area. The upper area has the final main weapon upgrade (along with several other pick ups) and the hardest enemy the player has encountered, the Spider enemy.</p>
+            <video class="videoSmall" autoplay loop muted>
+                <source src="BossVideo.mp4" type="video/mp4" />
+            </video>
+            <img src="FinalBossRoom.png" alt="Boss Room View 1" class="stdImgCrop" />
+            <hr />
+            <button class="accordion">More Images</button>
+            <div class="accordPanel">
+                <img src="FinalBossRoom2.png" alt="Boss Room View 2" class="stdImgCrop" />
+                <img src="FinalBossRoom3.png" alt="Boss Room View 3" class="stdImgCrop" />
+            </div>
+            <hr />
+            <h3 class="title">Control Room</h3>
+            <p class="text">When the player returns to the Smelting Plant, they now have the abillity to activate a gate that reqires the Tri shot upgrade. This leads the player to a Control device which is blocking the exit. After touching the exit, the level ends.</p>
+            <img src="Gate.png" alt="Gate View" class="stdImgCrop" />
+            <img src="Exit.png" alt="Control Room View 1" class="stdImgCrop" />
+            <img src="Exit2.png" alt="Control Room View 2" class="stdImgCrop" />
+            <hr />
+            <button class="accordion">Extra: Testing Range</button>
+            <div class="accordPanel">
+                <h3 class="title">Testing Range</h3>
+                <p class="text">As you have likely seen from other videos, this is the Testing Range which is a room designed for testing mechanics and interactions. The area is designed to have several distinct areas, elevations and challenges to test weapons against.</p>
+                <img src="TestingRange.jpg" alt="Testing Range View 1" class="stdImgCrop" />
+                <img src="TestingRange2.png" alt="Testing Range View 2" class="stdImgCrop" />
+                <img src="TestingRange3.png" alt="Testing Range View 3" class="stdImgCrop" />
+                <img src="TestingRange4.jpg" alt="Testing Range View 4" class="stdImgCrop" />
+            </div>
+            <hr />
+        </div>
+
+        <div id="Section6" class="tabcontent">
+            <h3 class="title">Design Documentation</h3>
+            <p class="text">The following images are the Design Documation for the project.</p>
+            <img src="DesignDoc1.png" alt="Design Documentation Page 1" class="stdImgCrop" />
+            <img src="DesignDoc2.png" alt="Design Documentation Page 2" class="stdImgCrop" />
+            <img src="DesignDoc3.png" alt="Design Documentation Page 3" class="stdImgCrop" />
+            <img src="DesignDoc4.png" alt="Design Documentation Page 4" class="stdImgCrop" />
+            <img src="DesignDoc5.png" alt="Design Documentation Page 5" class="stdImgCrop" />
+            <img src="DesignDoc6.png" alt="Design Documentation Page 6" class="stdImgCrop" />
+            <img src="DesignDoc7.png" alt="Design Documentation Page 7" class="stdImgCrop" />
+            <img src="DesignDoc8.png" alt="Design Documentation Page 8" class="stdImgCrop" />
+            <img src="DesignDoc9.png" alt="Design Documentation Page 9" class="stdImgCrop" />
+            <img src="DesignDoc10.png" alt="Design Documentation Page 10" class="stdImgCrop" />
+            <img src="DesignDoc11.png" alt="Design Documentation Page 11" class="stdImgCrop" />
+            <img src="DesignDoc12.png" alt="Design Documentation Page 12" class="stdImgCrop" />
+            <img src="DesignDoc13.png" alt="Design Documentation Page 13" class="stdImgCrop" />
+            <img src="DesignDoc14.png" alt="Design Documentation Page 14" class="stdImgCrop" />
+            <img src="DesignDoc15.png" alt="Design Documentation Page 15" class="stdImgCrop" />
+            <img src="DesignDoc16.png" alt="Design Documentation Page 16" class="stdImgCrop" />
+            <img src="DesignDoc17.png" alt="Design Documentation Page 17" class="stdImgCrop" />
+            <br />
+            <h3 class="title">Ideas & Scetches</h3>
+            <p class="text">These last few images are of scetches and ideas I had during development of the project.</p>
+            <img src="WorldMap.jpg" alt="World Map" class="stdImgCrop" />
+            <img src="LevelDesign1.jpg" alt="Level Design 1" class="stdImgCrop" />
+            <img src="LevelDesign2.jpg" alt="Level Design 2" class="stdImgCrop" />
+            <img src="IdeasWeapons.jpg" alt="Weapon Ideas " class="stdImgCrop" />
+            <img src="IdeasOther.jpg" alt="Other Ideas " class="stdImgCrop" />
+            <img src="BossConcept.jpg" alt="Boss Concept" class="stdImgCrop" />
+            <img src="BossConcept2.jpg" alt="Boss Concept 2" class="stdImgCrop" />
+            <img src="BossNEnemiesConcepts.jpg" alt="Boss and Enemies Concepts" class="stdImgCrop" />
+        </div>
+    </div>
+
+
+    <div class="infoBox">
+        <h1 class="center title">Contact</h1>
+        <p class="center text">If you want to message me, please do so here: <a href="mailto:coreygfives@gmail.com" style="color: whitesmoke; text-decoration: underline;">coreygfives@gmail.com</a>, I'll be sure to respond as quick as possible!<br /></p>
+    </div>
+
+    <br />
+
+    <footer class="center text" style="background-color:black;padding:10px;">This is the End :)</footer>
+
+    <nav>
+        <ul class="navigation" id="nav">
+            <li><span class="navText">Corey Graham</span></li>
+            <li class="navText"></li>
+            <li><a href="../index.html#About" class="navItem">ABOUT</a></li>
+            <li><a href="../index.html#Prog" class="navItem">PROGRAMMING</a></li>
+            <li><a href="../index.html#Design" class="navItem">DESIGN</a></li>
+            <li><a href="" class="navItem">CV</a></li>
+            <li class="navIcon">
+                <a herf="javascript:void(0);" onclick="navColapse()">
+                    <i class="material-icons">subject</i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        //function for images changing in background
+        var k = 0;
+        slideShow();
+        function slideShow() {
+            if (k == 0) {
+                document.body.style.backgroundImage = "url('Hallway1.png')";
+            }
+            else if (k == 1) {
+                document.body.style.backgroundImage = "url('Quantum1.png')";
+            }
+            else if (k == 2) {
+                document.body.style.backgroundImage = "url('MiniBoss1.png')";
+            }
+            k++;
+            if (k > 2) {
+                k = 0;
+            }
+            setTimeout(slideShow, 5000); //Changes image every 3 seconds
+        }
+
+        function navColapse() {
+            var x = document.getElementById("nav");
+            if (x.className === "navigation") {
+                x.className += " responsive";
+            }
+            else {
+                x.className = "navigation";
+            }
+        }
+
+        //Tab fuction to open different sections of stuff
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace("active", "");
+            }
+
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        //Accordion function to enable the opening and closing of sub-sections
+        var acc = document.getElementsByClassName("accordion");
+        var j;
+
+        for (j = 0; j < acc.length; j++) {
+            acc[j].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                }
+                else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+
+
+</body>
+</html>

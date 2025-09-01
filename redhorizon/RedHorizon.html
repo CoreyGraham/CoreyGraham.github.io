@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+
+<!-- This is the code to my website, Read if you dare :) -->
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corey Graham - Game Programming Portfolio</title>
+
+    <link rel="stylesheet" href="../StyleSheet.css" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body id="body">
+    <!-- Large box that fades background in and out -->
+    <div class="fadingInAndOut"></div>
+
+    <!-- Main information on project -->
+    <div class="projectBox">
+        <h1 class="title" style="font-size:90px">Red Horizon</h1>
+        <hr />
+        <p class="center text">Side-scrolling Beat-em-up Game</p>
+        <pre class="center text"><b>Project Type:</b> University <br /><br /><b>Software/Language Used:</b> Unity / C#</pre>
+        <br /><br /><br />
+        <p class="text">Red Horizon is a Side-scrolling Beat-em-up game that gives the player a set of abilities and attacks to take on hoards of enemies.</p>
+        <video class="videoSmall" controls>
+            <source src="RedhorizonGameplay.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Tabs for different sections of content -->
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Section1')">Player Controls</button>
+            <button class="tablinks" onclick="openTab(event, 'Section2')">Enemies</button>
+            <button class="tablinks" onclick="openTab(event, 'Section3')">Health & Score</button>
+            <button class="tablinks" onclick="openTab(event, 'Section4')">Camera & Menu</button>
+
+        </div>
+
+        <div id="Section1" class="tabcontent">
+            <h3 class="title">Player Controls</h3>
+            <p class="text">The player works by having several states that are triggered through input and affect the animation of the player sprite. The states are shown in the image below:</p>
+            <img src="PlayerStates.png" alt="Player States" class="stdImg" />
+            <p class="text">These states then affect what actions can be taken at specific times. For example, if the player is defeated, they cannot move or use any attack actions.<br /> Movement works by reading in the movement inputs WASD as a Vector 2 then determining the movement based on the vector and a variable that controls player speed in Fixed Update.</p>
+            <hr />
+
+            <!-- Accordion for subsections, that allows for more information on specific things -->
+            <button class="accordion">Movement Code</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows the code for reading in the player movement and reseting it.</p>
+                <img src="PlayerMovement.png" alt="Movement Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <h3 class="title">Player Attacks and Animations</h3>
+            <p class="text">The player has several attacks available to them. A basic forward, upwards and downwards attack allong side 4 special attacks that each have a cooldown before activating. These attacks are all handled in a script that also handles the attack animations. This is because the animator is also used to animate the hitboxes for each attack to ensure each line up with their visuals.</p>
+            <img src="Special4.png" alt="Special Attack 4" class="stdImg" />
+            <img src="SpecialAttack3.png" alt="Special Attack 3" class="stdImg" />
+            <video class="videoSmall" autoplay loop muted>
+                <source src="AttackAnimations.mp4" type="video/mp4" />
+            </video>
+            <hr />
+            <button class="accordion">Attack Code</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows the player script Attack function</p>
+                <img src="PlayerAttackController.png" alt="Player Attack Code Snippet" class="stdImg" />
+                <br />
+                <p class="text">The code below shows the player attack animation script Attack function.</p>
+                <img src="PlayerAttacks.png" alt="Player Attack Animator Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <button class="accordion">Animation Controllers</button>
+            <div class="accordPanel">
+                <p class="text">The image below shows the animation controller for the Player.</p>
+                <img src="PlayerAnimationsController.png" alt="Player Animation Controller" class="stdImg" />
+                <br />
+                <p class="text">The image below shows the animation controller for the Player Attacks.</p>
+                <img src="PlayerAttacksAnimationController.png" alt="Player Attack Animation Controller" class="stdImg" />
+            </div>
+            <hr />
+            <p class="text">Animations for attacks use triggers to start and end the animation, to ensure responsive animation and avoid confusion within the animation controller. When an attack ends the animation triggers are reset, as shown below:</p>
+            <img src="AnimationReset.png" alt="Animation Reset Code" class="stdImg" />
+            <br />
+            <h3 class="title">Projectiles</h3>
+            <p class="text">The 1st special attack fires a projectile. This works by getting the last direction inputed (recourded during movement) and instantiating a projectile object and applying a force to it using the direction vector and projectile speed. The projectile then checks who fired it and then will travel for a period of time and delete itself when it hit anything that isn't a player, dealing damage if its an enemy by calling a function within the enemy script.'</p>
+            <hr />
+            <button class="accordion">Projectile Code</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows projectile spawning and movement.</p>
+                <img src="PlayerProjectileFire.png" alt="Player Firing Projectile Code Snippet" class="stdImg" />
+                <br />
+                <p class="text">The code below is for the Projectile object.</p>
+                <img src="ProjectileScript.png" alt="Projectile Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+        </div>
+
+        <div id="Section2" class="tabcontent">
+            <h3 class="title">Enemies</h3>
+            <p class="text">Enemies work through states that define their actions, similarly to the player. When the AI decides upon an action it follows specific code until that action times out. These states involve movement towards the player (whether horizontal or verticle), Attacking and also player induced states when the enemy is damaged or defeated.</p>
+            <img src="EnemyStates.png" alt="Enemy States Code" class="stdImg" />
+            <video class="videoSmall" autoplay loop muted>
+                <source src="EnemyAI.mp4" type="video/mp4" />
+            </video>
+            <hr />
+            <button class="accordion">Enemy Actions Code</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows the Enemy states actions for movement.</p>
+                <img src="EnemyMovement.png" alt="Enemy Movement Code Snippet" class="stdImg" />
+                <br />
+                <p class="text">The code below shows Enemy states actions for attack, damage and defeat. Alongside this, is a range check which works using a collider that detects the player by the tag.</p>
+                <img src="EnemyStatesControlAndRangeCheck.png" alt="Enemy States and Range Check Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <p class="text">These states are controlled by a Coroutine that calls a function to update the action of the enemy. This state is changed according to various factors controlled by if statements.</p>
+            <hr />
+            <button class="accordion">State Update</button>
+            <div class="accordPanel">
+                <p class="text">The image below shows the UpdateAction function that is called by the coroutine below it.</p>
+                <img src="EnemyAI.png" alt="Enemy AI Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <p class="text">Enemies all have melee attacks but some have range attacks, which instantiate a projectile object.</p>
+            <img src="EnemyAttackAndDamage.png" alt="Enemy Attack and Damage Code Snippet" class="stdImg" />
+            <br />
+            <h3 class="title">Animations</h3>
+            <img src="EnemySprites.png" alt="Enemy Sprites" class="stdImg" />
+            <p class="text">Animations are handled similarly to player attack Animations. However, Enemy direction has to be set.</p>
+            <img src="EnemyAnimationController.png" alt="Enemy Animation Code Snippet" class="stdImg" />
+            <hr />
+            <button class="accordion">More Animation Code</button>
+            <div class="accordPanel">
+                <p class="text">The image below shows the animation controller for the mushroom enemy.</p>
+                <img src="EnemyAnimationControl.png" alt="Enemy Animation Controller" class="stdImg" />
+                <br />
+                <p class="text">The code below shows the enemy animation reset.</p>
+                <img src="EnemyAnimationReset.png" alt="Enemy Animation Reset Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+        </div>
+
+        <div id="Section3" class="tabcontent">
+            <h3 class="title">Health</h3>
+            <p class="text">Player health is handled by a script which manages both the value and display. The script contains a function that takes the damage and applies it if the player has health remaining. The display of this uses a bar that fills based on the current health compared to the max health.</p>
+            <img src="PlayerHealth.png" alt="Player Health Code Snippet" class="stdImg" />
+            <br />
+            <h3 class="title">Score</h3>
+            <p class="text">As seen in other code snippets, score is gained from defeating enemies. High score, on the other hand, is handled by a script that will get the score and compare it to PlayerPrefs, then sets is and the text accordingly.</p>
+            <img src="GameOver.png" alt="Game Over Snippet" class="stdImg" />
+            <img src="HighScore.png" alt="High Score Code Snippet" class="stdImg" />
+            <br />
+        </div>
+
+        <div id="Section4" class="tabcontent">
+            <h3 class="title">Camera</h3>
+            <p class="text">Camera movement is controlled by using the player position and adjusting the X axis accordingly while keeping the Y and Z axis fixed.</p>
+            <img src="CameraController.png" alt="Camera Controller Code Snippet" class="stdImg" />
+            <br />
+            <h3 class="title">Menu</h3>
+            <p class="text">The Menu is controlled through buttons that will either change the scene according to a variable defining which scene its for, or a function which will swap which menu screen is active.</p>
+            <img src="MenuButtonsScript.png" alt="Menu Buttons Code Snippet" class="stdImg" />
+            <br />
+        </div>
+    </div>
+
+
+    <div class="infoBox">
+        <h1 class="center title">Contact</h1>
+        <p class="center text">If you want to message me, please do so here: <a href="mailto:coreygfives@gmail.com" style="color: whitesmoke; text-decoration: underline;">coreygfives@gmail.com</a>, I'll be sure to respond as quick as possible!<br /></p>
+    </div>
+
+    <br />
+
+    <footer class="center text" style="background-color:black;padding:10px;">This is the End :)</footer>
+
+    <nav>
+        <ul class="navigation" id="nav">
+            <li><span class="navText">Corey Graham</span></li>
+            <li class="navText"></li>
+            <li><a href="../index.html#About" class="navItem">ABOUT</a></li>
+            <li><a href="../index.html#Prog" class="navItem">PROGRAMMING</a></li>
+            <li><a href="../index.html#Design" class="navItem">DESIGN</a></li>
+            <li><a href="" class="navItem">CV</a></li>
+            <li class="navIcon">
+                <a herf="javascript:void(0);" onclick="navColapse()">
+                    <i class="material-icons">subject</i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        //function for images changing in background
+        var k = 0;
+        slideShow();
+        function slideShow() {
+            if (k == 0) {
+                document.body.style.backgroundImage = "url('RedHorizon.png')";
+            }
+            else if (k == 1) {
+                document.body.style.backgroundImage = "url('GameOver.png')";
+            }
+            else if (k == 2) {
+                document.body.style.backgroundImage = "url('Special2.png')";
+            }
+            k++;
+            if (k > 2) {
+                k = 0;
+            }
+            setTimeout(slideShow, 5000); //Changes image every 3 seconds
+        }
+
+        function navColapse() {
+            var x = document.getElementById("nav");
+            if (x.className === "navigation") {
+                x.className += " responsive";
+            }
+            else {
+                x.className = "navigation";
+            }
+        }
+
+        //Tab fuction to open different sections of stuff
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace("active", "");
+            }
+
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        //Accordion function to enable the opening and closing of sub-sections
+        var acc = document.getElementsByClassName("accordion");
+        var j;
+
+        for (j = 0; j < acc.length; j++) {
+            acc[j].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                }
+                else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+
+<!-- This is the code to my website, Read if you dare :) -->
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corey Graham - Game Programming Portfolio</title>
+
+    <link rel="stylesheet" href="../StyleSheet.css" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body id="body">
+    <!-- Large box that fades background in and out -->
+    <div class="fadingInAndOut"></div>
+
+    <!-- Main information on project -->
+    <div class="projectBox">
+        <h1 class="title" style="font-size:90px">Prototype 2</h1>
+        <hr />
+        <p class="center text">Open World Narrative Game</p>
+        <pre class="center text"><b>Project Type:</b> University <br /><br /><b>Software/Language Used:</b> Unity / C#</pre>
+        <br /><br /><br />
+        <p class="text">A Open World game prototype that communicates a Narrative through enviromental elements, driven by player choice.</p>
+        <video class="videoSmall" controls>
+            <source src="Prototype2Gameplay.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Tabs for different sections of content -->
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Section1')">Player Controls</button>
+            <button class="tablinks" onclick="openTab(event, 'Section2')">Paint Mechanic</button>
+            <button class="tablinks" onclick="openTab(event, 'Section3')">Morality & Creatures</button>
+            <button class="tablinks" onclick="openTab(event, 'Section4')">Camera Control</button>
+
+        </div>
+
+        <div id="Section1" class="tabcontent">
+            <h3 class="title">Player Controls</h3>
+            <p class="text">The player had directional movement, jumping and the ability to swap their current tool (between a paint gun and a normal gun). Movement is handled by reading in the directional input and applying it to a movement vector that is then applied during physics updates. Jumping first checks the players y velocity to make sure they are stationary before allowing a jump force to be applied to the movement vector. Swapping tools simple switches a decimal value between 1 and -1, setting which tool visual is active accordingly. If this value is 0 then nothing is displayed, to show they haven't acuired the tools yet.</p>
+            <img src="PlayerControls.png" alt="Player Controls Code Snippet" class="stdImg" />
+            <hr />
+
+            <!-- Accordion for subsections, that allows for more information on specific things -->
+            <button class="accordion">Tool Pick up Code</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows how the player can pick up a tool when an invisible hitbox is touching the pick up object.</p>
+                <img src="ToolPickUp.png" alt="Tool Pick up Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <h3 class="title">Narrator</h3>
+            <p class="text">The player however doesn't start with control, as a Narrator introduces them to the world though a text box at the top of the screen.</p>
+            <video class="videoSmall" autoplay loop muted>
+                <source src="Prototype2Snippet.mp4" type="video/mp4" />
+            </video>
+            <img src="DelayedControl.png" alt="Delayed Control Code Snippet" class="stdImg" />
+            <hr />
+            <button class="accordion">Narrator Code</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows how the narrator displays different text read in from a file.</p>
+                <img src="NarratorText.png" alt="Narrator Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+        </div>
+
+        <div id="Section2" class="tabcontent">
+            <h3 class="title">Paint Projectiles</h3>
+            <p class="text">To colour in an object, the player has to fire paint at it using their paint gun. First the ammo is checked and if there is ammo left, the projectile is spawned at the fire point. Then the projectile is given a force to propell it forward and towards the center of the screen, before ammo is updated.</p>
+            <img src="ProjectileFire.png" alt="Paint Projectiles Code Snippet" class="stdImg" />
+            <hr />
+            <button class="accordion">Paint Projectile Code</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows how the paint projectile interacts with objects in the world.</p>
+                <img src="PaintProjectiles.png" alt="Paint Projectiles Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <h3 class="title">Paintable Objects</h3>
+            <p class="text">Paintable objects have their colour drained at the start of the game, with this colour returning when hit by paint projectiles. This is handled by a veriable called colourDrainPercent which representes the level of colour the object has been drained of. This veriable is applied to the RGB element of a emission of the materail, so that when its 1, it emits white but when its 0, there is no emission allowing the colour to be seen clearly. The effect that each paint projectile has on an object is controlled through a variable called paintEffectVal, meaning that certain objects can take more paint to complete than others. Once the object is complete, a small animation is played by changing the intensity of the colour.</p>
+            <video class="videoSmall" autoplay loop muted>
+                <source src="Prototype2Snippet2.mp4" type="video/mp4" />
+            </video>
+            <img src="PaintableObjectCode.png" alt="Paintable Object Code Snippet" class="stdImg" />
+            <hr />
+            <button class="accordion">Colour Completion Code</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows how the colour intensity is changed in the completion animation.</p>
+                <img src="ColourCompletionAnimation.png" alt="Colour Completion Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <h3 class="title">Reloading</h3>
+            <p class="text">To reload the paint gun, the player has to right click on a pond. This is measured using a hit box protruding from the camera that tells the pond when the player is in range.</p>
+            <img src="PondScript.png" alt="Pond Reload Code Snippet" class="stdImg" />
+        </div>
+
+        <div id="Section3" class="tabcontent">
+            <h3 class="title">Creatures</h3>
+            <p class="text">Within the world are creatures that will attack the player if they get near. The creature uses a Nav Mesh to randomly roam a specified area until the player enters their detection range. This detection distance is measured through triginometry and will set the target position for the creature to move to accordingly. Then at a close enough range the creature will damage the player using a collider to measure and trigger the damage.</p>
+            <img src="CreatureScript.png" alt="Creature Code Snippet" class="stdImg" />
+            <hr />
+            <button class="accordion">Creature Movement Code</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows how the creature chooses random potision and moves to them.</p>
+                <img src="CreatureMovement.png" alt="Creature Movement Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <h3 class="title">Bullets and Morality</h3>
+            <p class="text">To combat this, the player has the option to attack these creatures with their second tool (the normal gun). Using the gun to kill the creatures however negatively affects the players morality which is shown through the brightness of the colour in the world. Event listeners are applied to each paintable object so that when morality shifts, the objects can change their colour brightness accordingly.</p>
+            <img src="MoralityCheck.png" alt="Morality Check Code Snippet" class="stdImg" />
+            <img src="Tools.png" alt="Normal Gun tool" class="stdImg" />
+            <hr />
+            <button class="accordion">Bullet Code</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows how the bullet projectile interacts with the world.</p>
+                <img src="BulletProjectile.png" alt="Bullet Projectile Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+        </div>
+
+        <div id="Section4" class="tabcontent">
+            <h3 class="title">Camera Controls</h3>
+            <p class="text">The camera is controlled through mouse movement. The mouse movement is read in and applied to the camera rotation up to a limit above and below. Then the player rotation is set to account for horizontal camrea movement.</p>
+            <img src="cameraControls.png" alt="Camera Control Code Snippet" class="stdImg" />
+        </div>
+    </div>
+
+
+    <div class="infoBox">
+        <h1 class="center title">Contact</h1>
+        <p class="center text">If you want to message me, please do so here: <a href="mailto:coreygfives@gmail.com" style="color: whitesmoke; text-decoration: underline;">coreygfives@gmail.com</a>, I'll be sure to respond as quick as possible!<br /></p>
+    </div>
+
+    <br />
+
+    <footer class="center text" style="background-color:black;padding:10px;">This is the End :)</footer>
+
+    <nav>
+        <ul class="navigation" id="nav">
+            <li><span class="navText">Corey Graham</span></li>
+            <li class="navText"></li>
+            <li><a href="../index.html#About" class="navItem">ABOUT</a></li>
+            <li><a href="../index.html#Prog" class="navItem">PROGRAMMING</a></li>
+            <li><a href="../index.html#Design" class="navItem">DESIGN</a></li>
+            <li><a href="" class="navItem">CV</a></li>
+            <li class="navIcon">
+                <a herf="javascript:void(0);" onclick="navColapse()">
+                    <i class="material-icons">subject</i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        //function for images changing in background
+        var k = 0;
+        slideShow();
+        function slideShow() {
+            if (k == 0) {
+                document.body.style.backgroundImage = "url('prototype2.png')";
+            }
+            else if (k == 1) {
+                document.body.style.backgroundImage = "url('prototype2.png')";
+            }
+            else if (k == 2) {
+                document.body.style.backgroundImage = "url('prototype2.png')";
+            }
+            k++;
+            if (k > 2) {
+                k = 0;
+            }
+            setTimeout(slideShow, 5000); //Changes image every 3 seconds
+        }
+
+        function navColapse() {
+            var x = document.getElementById("nav");
+            if (x.className === "navigation") {
+                x.className += " responsive";
+            }
+            else {
+                x.className = "navigation";
+            }
+        }
+
+        //Tab fuction to open different sections of stuff
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace("active", "");
+            }
+
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        //Accordion function to enable the opening and closing of sub-sections
+        var acc = document.getElementsByClassName("accordion");
+        var j;
+
+        for (j = 0; j < acc.length; j++) {
+            acc[j].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                }
+                else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+
+
+</body>
+</html>

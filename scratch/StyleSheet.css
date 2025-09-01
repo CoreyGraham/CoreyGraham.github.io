@@ -1,0 +1,335 @@
+﻿body {
+    background-color: #232323;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-attachment: fixed;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Center website */
+.main {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.navigation {
+    list-style-type: none;
+    margin: 0;
+    padding: 1px;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navItem {
+    float: left;
+    display: block;
+    color: white;
+    font-family: Candara;
+    padding: 16px;
+    text-decoration: none;
+    transition: background-color 0.5s;
+}
+
+.navText {
+    float: left;
+    color: white;
+    font-family: Candara;
+    padding: 12px;
+    font-size: 22px;
+}
+
+.navIcon {
+    color: white;
+    display: none;
+    padding: 16px;
+}
+
+.navItem:hover {
+    background-color: forestgreen;
+    transition: background-color 0.5s;
+}
+
+.video {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+}
+
+.videoSmall {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: auto;
+    border-color: green;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid;
+    background-color: rgba(0,0,0,0.7);
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    color: whitesmoke;
+    float: left;
+    border: inherit;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: green;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: green;
+}
+
+/* Style that tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid rgba(0,0,0,0.7);
+    border-top: none;
+}
+
+.accordion {
+    background-color: rgba(50, 50, 50, 0.7);
+    color: whitesmoke;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.active, .accordion:hover {
+    background-color: rgb(143, 0, 0);
+}
+
+.accordPanel {
+    padding: 0 18px;
+    display: none;
+    background-color: none;
+    border: solid 1px rgb(143, 0, 0);
+    overflow: hidden;
+}
+
+.center {
+    text-align: center;
+}
+
+.padCenter {
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.infoBox {
+    color: whitesmoke;
+    font-family: Candara;
+    background-color: darkgreen;
+    padding: 12px;
+    margin: 0;
+}
+
+.titleBox {
+    color: white;
+    background-color: rgba(0,0,0,0.7);
+    padding: 5px;
+    margin:0;
+}
+
+.projectBox {
+    color: white;
+    background-color: rgba(0,0,0,0.7);
+    padding: 10px;
+    align-content: center;
+    margin: 100px 300px 100px 300px;
+}
+
+.title {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    font-family: Candara;
+    padding: 0;
+    margin: 2px;
+}
+
+.project {
+    margin: 50px;
+    width: 450px;
+    border-radius: 25px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.projectImg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 400px;
+    border-radius: 25px;
+}
+
+.stdImg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+    border-color: green;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+.smallBox {
+    color: whitesmoke;
+    font-size: 18px;
+    font-family: Candara;
+    border-radius: 10px;
+    padding: 5px;
+    width: fit-content;
+    display: inline-block;
+    margin-bottom: 0px;
+}
+
+.listItem {
+    color: whitesmoke;
+    font-size: 20px;
+    font-family: Candara;
+    margin-bottom:5px;
+}
+
+.listHead {
+    color: whitesmoke;
+    font-size: 24px;
+    font-family: Candara;
+    list-style-type: none;
+    margin-bottom: 5px;
+}
+
+.text {
+    color: whitesmoke;
+    font-size: 16px;
+    font-family:Tahoma;
+}
+
+.row {
+    margin: 8px -16px;
+    margin-left: 30px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+    padding: 8px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    display: inline-grid;
+    width: 32%;
+}
+
+/* Clear floats after rows */ 
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 1500px) {
+    .column {
+        width: 45%;
+    }
+    .projectBox {
+        margin: 100px 100px 100px 100px;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 1200px) {
+    .column {
+        width: 100%;
+    }
+    .projectBox {
+        margin: 100px 0px 100px 0px;
+    }
+}
+
+/* Responsive layout - makes the top nav colapse*/
+@media screen and (max-width: 700px) {
+    .navigation li:not(:first-child) {
+        display: none;
+    }
+    .navigation li.navIcon {
+        float: right;
+        display: block;
+    }
+    .navItem {
+        float: none;
+    }
+    
+}
+
+@media screen and (max-width: 700px) {
+    .navigation.responsive li.navIcon {
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+    .navigation.responsive li {
+        float: none;
+        display: block;
+    }
+    .navigation.responsive .navText {
+        float: none;
+    }
+}
+
+@keyframes fade {
+    0%, 100% { opacity: 1 }
+    35%, 75% { opacity: 0 }
+}
+
+.fadingInAndOut {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: -999;
+    position: fixed;
+    top: 0px;
+    opacity: 1;
+    animation-name: fade;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}

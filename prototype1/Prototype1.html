@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+
+<!-- This is the code to my website, Read if you dare :) -->
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corey Graham - Game Programming Portfolio</title>
+
+    <link rel="stylesheet" href="../StyleSheet.css" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body id="body">
+    <!-- Large box that fades background in and out -->
+    <div class="fadingInAndOut"></div>
+
+    <!-- Main information on project -->
+    <div class="projectBox">
+        <h1 class="title" style="font-size:90px">Prototype 1</h1>
+        <hr />
+        <p class="center text">Puzzle Game</p>
+        <pre class="center text"><b>Project Type:</b> University <br /><br /><b>Software/Language Used:</b> Unity / C#</pre>
+        <br /><br /><br />
+        <p class="text">A puzzle game prototype that features only directional input and 1 button.</p>
+        <video class="videoSmall" controls>
+            <source src="Prototype1Gameplay.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Tabs for different sections of content -->
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Section1')">Camera Control</button>
+            <button class="tablinks" onclick="openTab(event, 'Section2')">Player Control</button>
+            <button class="tablinks" onclick="openTab(event, 'Section3')">Interact Functionallity</button>
+            <button class="tablinks" onclick="openTab(event, 'Section4')">Collectables</button>
+        </div>
+
+        <div id="Section1" class="tabcontent">
+            <h3 class="title">Camera Control</h3>
+            <p class="text">Since this game is designed to be controlled through the use of directional input and 1 button, the camrea can only be controlled when the button (Space in this case) is held. This allows the player to rotate the camera around a point or zoom in and out all using the directional inputs (WASD in this case). The function is called in the player script and takes the directional inputs as parameters. These values are then used to move the camera according to its current rotation, then the camera rotates to look to the center again and adjusts the rotation of the player using Eulers Angles. This is to align player movement with the current camera angle to avoid confusion.</p>
+            <img src="CameraControls.png" alt="Camera Control Code Snippet" class="stdImg" />
+            <video class="videoSmall" autoplay loop muted>
+                <source src="Prototype1Snippet.mp4" type="video/mp4" />
+            </video>
+            <br />
+            <img src="Level1.png" alt="Level 1 Perspective 1" class="stdImg" />
+            <img src="Level1P2.png" alt="Level 1 Perspective 2" class="stdImg" />
+        </div>
+
+        <div id="Section2" class="tabcontent">
+            <h3 class="title">Player Control</h3>
+            <p class="text">Movement is handled via forces. The player has a rigidbody that has a relative force applied to it every physics update. This force is calculated by getting a direction vector read in through input and applying a fixed value and Time to it.</p>
+            <img src="LadderAndMovement.png" alt="Movement Code Snippet" class="stdImg" />
+            <br />
+            <hr />
+
+            <!-- Accordion for subsections, that allows for more information on specific things -->
+            <button class="accordion">Controls Assigning Code</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows how player contols are set up. Actions are retrieved and binded to specific functions on Awake.</p>
+                <img src="PlayerStatesAndControls.png" alt="Controls Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <h3 class="title">Moving Platforms</h3>
+            <p class="text">Movement becomes complicated when moving platforms get involved as we have to account for the force they would apply to the player for them to remain on the platform. To resolve this, I used parenting to attach the player and other objects to the platform, allowing them to all move together.</p>
+            <img src="Level2.png" alt="Level 2" class="stdImg" />
+            <img src="PlayerPlatformCode.png" alt="Platform Parenting Code Snippet" class="stdImg" />
+            <br />
+            <hr />
+            <button class="accordion">Platform Movement Code</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows rotating platform movement.</p>
+                <img src="RotatingPlatforms.png" alt="Rotating Platforms Code Snippet" class="stdImg" />
+                <p class="text">The code below shows directional platform movement. It uses a start point and end point to move between them.</p>
+                <img src="MovingPlatforms.png" alt="Moving Platforms Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+        </div>
+
+        <div id="Section3" class="tabcontent">
+            <h3 class="title">Interact Functionallity</h3>
+            <p class="text">The player can interact with the enviroment through their singular button (Space). Interaction is checked through collision and then when the interact button is tapped, the specific interaction carries out.</p>
+            <img src="InteractFunctionallity.png" alt="Movement Code Snippet" class="stdImg" />
+            <br />
+            <video class="videoSmall" autoplay loop muted>
+                <source src="Prototype1Snippet2.mp4" type="video/mp4" />
+            </video>
+            <hr />
+            <button class="accordion">Interaction Check Code</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows how tags read through collision control which interaction should take place, using states for the different interactions.</p>
+                <img src="InteractionCheck.png" alt="Interaction Check Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+        </div>
+
+        <div id="Section4" class="tabcontent">
+            <h3 class="title">Collectables</h3>
+            <p class="text">Collectables are managed by the End of Level object. When collectables are collected, a function is called that increments the values of these collectables to be displayed at the end of the level. When the End of Level object is collected, it updates the text for each collectables collected and displays it on screen. It also handles scene changes triggered through the player holding space.</p>
+            <img src="EndOfLevelObject.png" alt="End of Level object Code Snippet" class="stdImg" />
+            <br />
+            <hr />
+            <button class="accordion">Coin and Gem Collectable Code</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows how the Coin and Gem collectable work.</p>
+                <img src="CoinAndGemScript.png" alt="Coin and Gem Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <img src="Level4.png" alt="Level 4" class="stdImg" />
+        </div>
+    </div>
+
+
+    <div class="infoBox">
+        <h1 class="center title">Contact</h1>
+        <p class="center text">If you want to message me, please do so here: <a href="mailto:coreygfives@gmail.com" style="color: whitesmoke; text-decoration: underline;">coreygfives@gmail.com</a>, I'll be sure to respond as quick as possible!<br /></p>
+    </div>
+
+    <br />
+
+    <footer class="center text" style="background-color:black;padding:10px;">This is the End :)</footer>
+
+    <nav>
+        <ul class="navigation" id="nav">
+            <li><span class="navText">Corey Graham</span></li>
+            <li class="navText"></li>
+            <li><a href="../index.html#About" class="navItem">ABOUT</a></li>
+            <li><a href="../index.html#Prog" class="navItem">PROGRAMMING</a></li>
+            <li><a href="../index.html#Design" class="navItem">DESIGN</a></li>
+            <li><a href="" class="navItem">CV</a></li>
+            <li class="navIcon">
+                <a herf="javascript:void(0);" onclick="navColapse()">
+                    <i class="material-icons">subject</i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        //function for images changing in background
+        var k = 0;
+        slideShow();
+        function slideShow() {
+            if (k == 0) {
+                document.body.style.backgroundImage = "url('prototype1.png')";
+            }
+            else if (k == 1) {
+                document.body.style.backgroundImage = "url('Level3.png')";
+            }
+            else if (k == 2) {
+                document.body.style.backgroundImage = "url('Level4.png')";
+            }
+            k++;
+            if (k > 2) {
+                k = 0;
+            }
+            setTimeout(slideShow, 5000); //Changes image every 3 seconds
+        }
+
+        function navColapse() {
+            var x = document.getElementById("nav");
+            if (x.className === "navigation") {
+                x.className += " responsive";
+            }
+            else {
+                x.className = "navigation";
+            }
+        }
+
+        //Tab fuction to open different sections of stuff
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace("active", "");
+            }
+
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        //Accordion function to enable the opening and closing of sub-sections
+        var acc = document.getElementsByClassName("accordion");
+        var j;
+
+        for (j = 0; j < acc.length; j++) {
+            acc[j].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                }
+                else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+
+
+</body>
+</html>

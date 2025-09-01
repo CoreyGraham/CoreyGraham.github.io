@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+
+<!-- This is the code to my website, Read if you dare :) -->
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corey Graham - Game Programming Portfolio</title>
+
+    <link rel="stylesheet" href="../StyleSheet.css" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body id="body">
+    <!-- Large box that fades background in and out -->
+    <div class="fadingInAndOut"></div>
+
+    <!-- Main information on project -->
+    <div class="projectBox">
+        <h1 class="title" style="font-size:90px">Conquer</h1>
+        <hr />
+        <p class="center text">Text-based Game</p>
+        <pre class="center text"><b>Project Type:</b> University <br /><br /><b>Software/Language Used:</b> Visual Studio / C++</pre>
+        <br /><br /><br />
+        <p class="text">Conquer is a text-based Stratagy game where the player gathers resources, develops an army and then battles an opponent in turn-based combat.</p>
+        <video class="videoSmall" controls>
+            <source src="ConquerGameplay.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Tabs for different sections of content -->
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Section1')">Unit Structs and Army Pool</button>
+            <button class="tablinks" onclick="openTab(event, 'Section2')">Combat Structure</button>
+            <button class="tablinks" onclick="openTab(event, 'Section3')">Weekly Randomised Events</button>
+            <button class="tablinks" onclick="openTab(event, 'Section4')">Generating Money and Unit Purchasing</button>
+            <button class="tablinks" onclick="openTab(event, 'Section5')">Other</button>
+        </div>
+
+        <div id="Section1" class="tabcontent">
+            <h3 class="title">Unit Structs and Army Pool</h3>
+            <p class="text">I developed a system for managing unit and army information. Using two structs I could create units that have different stats (Attack, Defence, etc.) and information on special traits and unlocked status, while having a second struct that stores the quantitys of units in a given army aswell as base health and stat boosts.</p>
+            <hr />
+
+            <!-- Accordion for subsections, that allows for more information on specific things -->
+            <button class="accordion">Struct Code</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows the structs used.</p>
+                <img src="StructCode.png" alt="Struct Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+        </div>
+
+        <div id="Section2" class="tabcontent">
+            <h3 class="title">Combat Structure</h3>
+            <p class="text">For combat to take place over multiple lanes (rows and columns) I created a unit class and made 5 arrays of this class to represent the lanes. Each Lane has the player base side (Blue), battle field spaces (white) and the enemy base side (red). Units appear in their sides colours (player units appear blue, etc.)</p>
+            <br />
+            <img src="Combat.png" alt="Combat Grid Display" class="stdImg" />
+            <hr />
+            <button class="accordion">Unit Class Snippet</button>
+            <div class="accordPanel">
+                <img src="UnitClass.png" alt="Unit Class Code" class="stdImg" />
+            </div>
+            <hr />
+            <br />
+            <p class="text">This class contains all the basic information about a unit, bools for whether it is active or not and strings for names (to trigger specific effects) and alligences that can all be read during combat. It also contains functions to allow the unit to move forward (by swaping), take damage and be defeated (reseting the unit to blank).</p>
+            <hr />
+            <button class="accordion">Functions Code Snippet</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows the Swap and Defeat functions.</p>
+                <img src="UnitClassSwap.png" alt="Unit Class Swap Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <p class="text">Units are placed using pointers. When the player or enemy places a unit, the lane and type are passed through to a function with then finds the lane (and correct column) and Swaps the blank data in that unit class for that of the unit being placed.</p>
+            <br />
+            <img src="UnitPlacement.png" alt="Unit Placement 1" class="stdImg" />
+            <img src="UnitPlacement2.png" alt="Unit Placement 2" class="stdImg" />
+            <br />
+            <p class="text">Combat is then looped through, with unit placement and then activation, starting with the player. This cycle repeats until a side has lost all their base health. During placement and activation, the battlefield is updated to display each change made.</p>
+            <hr />
+            <button class="accordion">Combat Loop Code Snippet</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows the Combat loop.</p>
+                <img src="CombatLoop.png" alt="Combat Loop Code Snippet" class="stdImg" />
+                <p class="text">The code below shows the Display Updating.</p>
+                <img src="GenerateBattleField.png" alt="Display Updating Code Snippet 1" class="stdImg" />
+            </div>
+            <hr />
+            <button class="accordion">Display Updating Code Snippet</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows the Display Updating.</p>
+                <img src="GenerateBattleField.png" alt="Display Updating Code Snippet 1" class="stdImg" />
+                <img src="CreateLane.png" alt="Display Updating Code Snippet 2" class="stdImg" />
+            </div>
+            <hr />
+        </div>
+
+        <div id="Section3" class="tabcontent">
+            <h3 class="title">Weekly Randomised Events</h3>
+            <p class="text">To add variety to each week of the game, I created randomised events that would give the player choices on how to proceed. For example, trading workers for garanteed higher profit or drinking a potion with a potential good or bad effect.</p>
+            <br />
+            <img src="ChestEvent.png" alt="Chest Event" class="stdImg" />
+            <img src="MinerEvent.png" alt="Miner Event" class="stdImg" />
+            <img src="WitchEvent.png" alt="Witch Event" class="stdImg" />
+            <hr />
+            <button class="accordion">Event Code Snippet</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows Events.</p>
+                <img src="RandEvents.png" alt="Event Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <p class="text">There are also Mid-Week events that grant benefits to the player.</p>
+            <br />
+            <img src="MerchantEvt.png" alt="Chest Event" class="stdImg" />
+            <hr />
+            <button class="accordion">Mid-Week Events Code Snippet</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows Mid-Week Events.</p>
+                <img src="MerchantEvent.png" alt="Merchant Event" class="stdImg" />
+            </div>
+            <hr />
+        </div>
+
+        <div id="Section4" class="tabcontent">
+            <h3 class="title">Generating Money</h3>
+            <p class="text">At the start of the week the player sends their workers to 3 locations, each having their own risk and profit. This is handled using a function that is given an upper-limit, ensuring players cannot place more units than they have.</p>
+            <br />
+            <img src="WorkerAssignment.png" alt="Worker Assignment" class="stdImg" />
+            <hr />
+            <button class="accordion">Worker Assignment Code Snippet</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows Worker Assignment.</p>
+                <img src="DeployWorkers.png" alt="Worker Assignment Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+            <h3 class="title">Purchasing Units</h3>
+            <p class="text">At the end of the week, income is calculated by generating a random number and comparing it to the chance of success for each location. The player then can spend their income on units they have access too, checked using a list containing the abbreviated units.</p>
+            <br />
+            <img src="UnitPurchase.png" alt="Unit Purchase" class="stdImg" />
+            <br />
+            <p class="text">The player can also print out a list of the units they have acess to with their stats and effects.</p>
+            <br />
+            <img src="UnitPurchase2.png" alt="Unit Purchase 2" class="stdImg" />
+            <hr />
+            <button class="accordion">Unit Purchase Code Snippet</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows Unit Purchase.</p>
+                <img src="Purchacing.png" alt="Unit Purchase Code Snippet" class="stdImg" />
+            </div>
+            <hr />
+        </div>
+
+        <div id="Section5" class="tabcontent">
+            <h3 class="title">Other</h3>
+            <p class="text">To create a smooth expirience I added function to clear the screen and to print text gradually.</p>
+            <br />
+            <img src="ErasingLines.png" alt="Erasing Lines Code" class="stdImg" />
+            <br />
+            <img src="TextOutput.png" alt="Text Output Code" class="stdImg" />
+            <br />
+            <p class="text">For each week I wanted to introduce the enemy faction to the player, so I added code to open txt files and read them using the text output at the start of each week.</p>
+            <hr />
+            <button class="accordion">Reading txt Code Snippet</button>
+            <div class="accordPanel">
+                <p class="text">The code below shows code for reading in txt files.</p>
+                <img src="ReadFiles.png" alt="Reading txt files Code Snippet" class="stdImg" />
+                <img src="Text.png" alt="Narrative Text" class="stdImg" />
+            </div>
+            <hr />
+            <p class="text">I also made code for reading in player input for string and integer inputs, as the game requires this often.</p>
+            <br />
+            <img src="InputCheck.png" alt="Input Check Code" class="stdImg" />
+
+        </div>
+    </div>
+
+
+    <div class="infoBox">
+        <h1 class="center title">Contact</h1>
+        <p class="center text">If you want to message me, please do so here: <a href="mailto:coreygfives@gmail.com" style="color: whitesmoke; text-decoration: underline;">coreygfives@gmail.com</a>, I'll be sure to respond as quick as possible!<br /></p>
+    </div>
+
+    <br />
+
+    <footer class="center text" style="background-color:black;padding:10px;">This is the End :)</footer>
+
+    <nav>
+        <ul class="navigation" id="nav">
+            <li><span class="navText">Corey Graham</span></li>
+            <li class="navText"></li>
+            <li><a href="../index.html#About" class="navItem">ABOUT</a></li>
+            <li><a href="../index.html#Prog" class="navItem">PROGRAMMING</a></li>
+            <li><a href="../index.html#Design" class="navItem">DESIGN</a></li>
+            <li><a href="" class="navItem">CV</a></li>
+            <li class="navIcon">
+                <a herf="javascript:void(0);" onclick="navColapse()">
+                    <i class="material-icons">subject</i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        //function for images changing in background
+        var k = 0;
+        slideShow();
+        function slideShow() {
+            if (k == 0) {
+                document.body.style.backgroundImage = "url('Conquer.png')";
+            }
+            else if (k == 1) {
+                document.body.style.backgroundImage = "url('Combat.png')";
+            }
+            else if (k == 2) {
+                document.body.style.backgroundImage = "url('YouDied.png')";
+            }
+            k++;
+            if (k > 2) {
+                k = 0;
+            }
+            setTimeout(slideShow, 5000); //Changes image every 3 seconds
+        }
+
+        function navColapse() {
+            var x = document.getElementById("nav");
+            if (x.className === "navigation") {
+                x.className += " responsive";
+            }
+            else {
+                x.className = "navigation";
+            }
+        }
+
+        //Tab fuction to open different sections of stuff
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace("active", "");
+            }
+
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        //Accordion function to enable the opening and closing of sub-sections
+        var acc = document.getElementsByClassName("accordion");
+        var j;
+
+        for (j = 0; j < acc.length; j++) {
+            acc[j].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                }
+                else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+
+
+</body>
+</html>
