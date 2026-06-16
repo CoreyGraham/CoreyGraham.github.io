@@ -25,7 +25,7 @@
         <br /><br /><br />
         <p class="text">A zombie survival game where both the zombie enemies and human survivor are handled by AI pathfinding, steering and decision making. For this project, I was given a template and had to code the functionality of several steering behaviours, pathfinding algorithms and decision making scripts.</p>
         <video class="videoSmall" controls>
-            <source src="RepCommando/RepublicCommandoGameplay.mp4" type="video/mp4" />
+            <source src="Gameplay.mp4" type="video/mp4" />
         </video>
 
         <!-- Tabs for different sections of content -->
@@ -33,20 +33,20 @@
             <button class="tablinks" onclick="openTab(event, 'Section1')">Steering Behavious</button>
             <button class="tablinks" onclick="openTab(event, 'Section2')">Pathfinding Algorithms</button>
             <button class="tablinks" onclick="openTab(event, 'Section3')">Pathfinding: JPS algorithm</button>
-            <button class="tablinks" onclick="openTab(event, 'Section4')">Decision Making: Finite State Machine</button>
+            <button class="tablinks" onclick="openTab(event, 'Section4')">Decision Making: FSM</button>
             <button class="tablinks" onclick="openTab(event, 'Section5')">Decision Making: Behaviour Tree</button>
             <button class="tablinks" onclick="openTab(event, 'Section6')">Other</button>
         </div>
 
         <div id="Section1" class="tabcontent">
             <h3 class="title">Section 1</h3>
-            <p class="text">Bla bla bla</p>
+            <p class="text">Comming Soon</p>
             <hr />
 
             <!-- Accordion for subsections, that allows for more information on specific things -->
             <button class="accordion">Sub-Section 1</button>
             <div class="accordPanel">
-                <p class="text"> More specific bla bla bla</p>
+                <p class="text"> Comming Soon</p>
             </div>
             <hr />
             <button class="accordion">Sub-Section 2</button>
@@ -62,19 +62,51 @@
 
         <div id="Section2" class="tabcontent">
             <h3 class="title">Section 2</h3>
-            <p class="text">Bleep bleep bleep</p>
+            <p class="text">Comming Soon</p>
         </div>
 
         <div id="Section3" class="tabcontent">
             <h3 class="title">Section 3</h3>
-            <p class="text">Boing boing boing</p>
+            <p class="text">Comming Soon</p>
+        </div>
+
+        <div id="Section4" class="tabcontent">
+            <h3 class="title">Section 1</h3>
+            <p class="text">Comming Soon</p>
+            <hr />
+
+            <!-- Accordion for subsections, that allows for more information on specific things -->
+            <button class="accordion">Sub-Section 1</button>
+            <div class="accordPanel">
+                <p class="text"> Comming Soon</p>
+            </div>
+            <hr />
+            <button class="accordion">Sub-Section 2</button>
+            <div class="accordPanel">
+                <img src="conquer/Conquer.png" alt="Conquer: My Text-Based Game" class="projectImg" />
+                <p class="text">Example Image</p>
+                <video class="videoSmall" autoplay muted loop>
+                    <source src="Video.mp4" type="video/mp4" />
+                </video>
+                <p class="text">Example Video</p>
+            </div>
+        </div>
+
+        <div id="Section5" class="tabcontent">
+            <h3 class="title">Section 2</h3>
+            <p class="text">Comming Soon</p>
+        </div>
+
+        <div id="Section6" class="tabcontent">
+            <h3 class="title">Section 3</h3>
+            <p class="text">Comming Soon</p>
         </div>
     </div>
 
 
     <div class="infoBox">
         <h1 class="center title">Contact</h1>
-        <p class="center text">If you want to message me, please do so here: <a href="mailto:coreygfives@gmail.com" style="color: whitesmoke; text-decoration: underline;">coreygfives@gmail.com</a>, I'll be sure to respond as quick as possible!<br /></p>
+        <p class="center text">If you want to message me, please do so here: <a href="mailto:coreygfives@gmail.com" style="color: whitesmoke; text-decoration: underline;">coreygfives@gmail.com</a>, I'll be sure to respond as quick as possible!<br />Also, you can find me on YouTube  <a href="https://www.youtube.com/@CoolCloneG" style="color: whitesmoke; text-decoration: underline;">CoolCloneG</a>, I sometimes make videos!</p>
     </div>
 
     <br />
@@ -102,13 +134,13 @@
         slideShow();
         function slideShow() {
             if (k == 0) {
-                document.body.style.backgroundImage = "url('RepCommando/RepComando.png')";
+                document.body.style.backgroundImage = "url('JPS.png')";
             }
             else if (k == 1) {
-                document.body.style.backgroundImage = "url('RepCommando/RepComando.png')";
+                document.body.style.backgroundImage = "url('CollisionAvoidance.png')";
             }
             else if (k == 2) {
-                document.body.style.backgroundImage = "url('RepCommando/RepComando.png')";
+                document.body.style.backgroundImage = "url('HumanSight.png')";
             }
             k++;
             if (k > 2) {
